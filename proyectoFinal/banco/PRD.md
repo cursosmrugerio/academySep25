@@ -49,7 +49,6 @@
 | **Spring Data MongoDB** | 3.5.6 | ODM para MongoDB 8 |
 | **MySQL** | Latest (Docker) | Base de datos transaccional (puerto 3306) |
 | **MongoDB** | 8 (Docker) | Base de datos documental (puerto 27017) |
-| **PostgreSQL** | 15 (Docker) | Disponible pero no utilizada en implementación final |
 | **JUnit 5** | Jupiter | Testing unitario e integración |
 | **Mockito** | Incluido en Spring Boot | Mocking en todas las capas |
 | **Spring Batch** | 5.x | Procesamiento batch con chunk-oriented processing |
@@ -150,7 +149,7 @@
 **Colecciones Implementadas:**
 - `notifications` - Notificaciones enviadas a clientes
   - Tipos: CUSTOMER_REGISTERED, ACCOUNT_CREATED, DEPOSIT, WITHDRAWAL, TRANSFER_SENT, TRANSFER_RECEIVED, LOW_BALANCE, ACCOUNT_CLOSED, CUSTOMER_UPDATED
-  - Canales: EMAIL, SMS, PUSH, IN_APP
+  - Canales: EMAIL, SMS, PUSH, IN_APP (Logs simulados)
   - Estados: PENDING, SENT, FAILED, RETRY
 - `transaction_logs` - Auditoría de todas las transacciones
   - Tipos: DEPOSIT, WITHDRAWAL, TRANSFER_SENT, TRANSFER_RECEIVED, INTEREST_APPLIED
@@ -419,14 +418,14 @@
 #### Gestión de Clientes ✅
 - ✅ Registro con Email único (validación @Email)
 - ✅ Actualización de datos personales
-- ✅ Estados de cliente (ACTIVE/INACTIVE) con soft delete
+- ✅ Estados de cliente (ACTIVE/INACTIVE) con borrado lógico
 - ✅ Búsquedas y filtros por status
 - ✅ Activación/Desactivación manual
 - ✅ Validación de teléfono (10 dígitos exactos con @Pattern)
 - ✅ Timestamps automáticos (createdAt, updatedAt)
 
 **Casos de Uso Adicionales Implementados:**
-- Cliente no puede ser eliminado permanentemente (soft delete)
+- Cliente no puede ser eliminado permanentemente (borrado lógico)
 - Cuentas del cliente se cierran automáticamente al desactivar cliente
 - Email único validado a nivel BD
 
@@ -528,7 +527,7 @@ POST http://localhost:8080/api/batch/monthly-interest
   - LOW_BALANCE - Al quedar balance < $200 después de retiro
   - ACCOUNT_CLOSED - Al cerrar cuenta
   - CUSTOMER_UPDATED - Al actualizar datos (implementado pero sin evento actual)
-- ✅ **Canales implementados (4):**
+- ✅ **Canales implementados simulados(4):**
   - EMAIL - Simulación con log "📧 EMAIL sent to..."
   - SMS - Simulación con log "📱 SMS sent..."
   - PUSH - Simulación con log "🔔 PUSH notification sent..."
@@ -646,8 +645,6 @@ docker exec mongodb-container mongosh -u admin -p xideral4321 \
 | **Archivos de Test** | 15 archivos Java |
 | **Tests Totales** | **138 tests** (estimado por líneas de código) |
 | **Archivos Java Total** | **45 archivos** en src/main/java |
-| **Scripts Shell** | 2 (validate-docker-compose.sh, run-integration-tests.sh) |
-| **Documentos Markdown** | 10 (README, PRD, 5 reportes diarios, 3 guías técnicas, PLAN_DIARIO, COMANDOS_PRUEBAS) |
 
 ### APIs REST por Módulo (50+ Endpoints Totales)
 
@@ -1847,6 +1844,6 @@ El repositorio incluye:
 
 **Preparado para:** Participantes Academia Fullstack
 **Fecha de Planificación:** Septiembre 2025
-**Fecha de Completación:** 30 Septiembre 2025
+**Fecha de Completación:** 3 Octubre 2025
 **Duración Real:** 5 días
 **Estado Final:** ✅ PROYECTO 100% COMPLETADO Y FUNCIONAL
