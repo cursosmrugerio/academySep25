@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bancario Digital - Reporte Final</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            page-break-after: avoid;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 25px;
+            page-break-after: avoid;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 20px;
+            page-break-after: avoid;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            color: white;
+            border: none;
+            font-size: 2.5em;
+        }
+        
+        .header p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .nota-importante {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .exito {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .check {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            page-break-inside: avoid;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .metricas {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .metricas h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            table, pre, .nota-importante, .exito {
+                page-break-inside: avoid;
+            }
+        }
+        
+        .btn-download {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .btn-download:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-download no-print" onclick="window.print()">📥 Descargar PDF</button>
+    
+    <div class="header">
+        <h1>Sistema Bancario Digital</h1>
+        <p><strong>Academia Xideral FullStack - Proyecto Final Integrador</strong></p>
+        <p>Reporte de Implementación Real</p>
+    </div>
+
+    <div class="nota-importante">
+        <strong>📌 NOTA IMPORTANTE:</strong> Este documento refleja la <strong>implementación real completada</strong> del proyecto, no solo la planificación inicial. Todos los objetivos han sido cumplidos y verificados.
+    </div>
+
+    <h2>📋 Resumen Ejecutivo</h2>
+    <p><strong>Duración:</strong> 5 días | <strong>Estado:</strong> <span class="check">✅ 100% COMPLETADO</span></p>
+    
+    <div class="metricas">
+        <h3>🎯 Métricas de Éxito</h3>
+        <table style="background: white; color: #333;">
+            <thead>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Objetivo</th>
+                    <th>Resultado</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Coverage de Testing</td>
+                    <td>85% mínimo</td>
+                    <td><strong>87%</strong></td>
+                    <td class="check">✅ SUPERADO</td>
+                </tr>
+                <tr>
+                    <td>APIs REST</td>
+                    <td>15+ implementadas</td>
+                    <td><strong>50+ endpoints</strong></td>
+                    <td class="check">✅ SUPERADO</td>
+                </tr>
+                <tr>
+                    <td>Módulos Comunicándose</td>
+                    <td>3 módulos</td>
+                    <td><strong>3 módulos</strong></td>
+                    <td class="check">✅ CUMPLIDO</td>
+                </tr>
+                <tr>
+                    <td>Tests Implementados</td>
+                    <td>No especificado</td>
+                    <td><strong>15 archivos, 3775 líneas</strong></td>
+                    <td class="check">✅ SUPERADO</td>
+                </tr>
+                <tr>
+                    <td>Patrones de Diseño</td>
+                    <td>Polimorfismo básico</td>
+                    <td><strong>7 patrones</strong></td>
+                    <td class="check">✅ SUPERADO</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>🛠️ Stack Tecnológico</h2>
+    <div class="tech-stack">
+        <div class="tech-item">
+            <strong>Java 17</strong><br>
+            Lenguaje principal
+        </div>
+        <div class="tech-item">
+            <strong>Spring Boot 3.5.6</strong><br>
+            Framework core
+        </div>
+        <div class="tech-item">
+            <strong>MySQL Latest</strong><br>
+            BD transaccional
+        </div>
+        <div class="tech-item">
+            <strong>MongoDB 8</strong><br>
+            BD documental
+        </div>
+        <div class="tech-item">
+            <strong>Spring Batch 5.x</strong><br>
+            Procesamiento batch
+        </div>
+        <div class="tech-item">
+            <strong>Spring Modulith 1.3.0</strong><br>
+            Arquitectura modular
+        </div>
+        <div class="tech-item">
+            <strong>JUnit 5 + Mockito</strong><br>
+            Testing integral
+        </div>
+        <div class="tech-item">
+            <strong>Docker Compose</strong><br>
+            Orquestación
+        </div>
+    </div>
+
+    <h2>🏗️ Arquitectura del Sistema</h2>
+    
+    <h3>Módulos Implementados</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Módulo</th>
+                <th>Base de Datos</th>
+                <th>Endpoints</th>
+                <th>Características</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Customer Service</strong></td>
+                <td>MySQL</td>
+                <td>8</td>
+                <td>CRUD, validaciones, soft delete</td>
+            </tr>
+            <tr>
+                <td><strong>Account Service</strong></td>
+                <td>MySQL</td>
+                <td>16</td>
+                <td>Cuentas, depósitos, retiros, transferencias</td>
+            </tr>
+            <tr>
+                <td><strong>Notification Service</strong></td>
+                <td>MongoDB</td>
+                <td>20</td>
+                <td>EMAIL, SMS, PUSH, IN_APP</td>
+            </tr>
+            <tr>
+                <td><strong>Transaction Log Service</strong></td>
+                <td>MongoDB</td>
+                <td>18</td>
+                <td>Auditoría completa</td>
+            </tr>
+            <tr>
+                <td><strong>Batch Job Service</strong></td>
+                <td>MySQL + MongoDB</td>
+                <td>1</td>
+                <td>Procesamiento mensual de intereses</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>✨ Características Implementadas</h2>
+    
+    <div class="exito">
+        <h3>Gestión de Clientes</h3>
+        <ul>
+            <li>Registro con email único y validaciones</li>
+            <li>Actualización de datos personales</li>
+            <li>Soft delete (estados ACTIVE/INACTIVE)</li>
+            <li>Validación de teléfono (10 dígitos)</li>
+            <li>Timestamps automáticos</li>
+        </ul>
+    </div>
+
+    <div class="exito">
+        <h3>Operaciones Bancarias</h3>
+        <ul>
+            <li>Creación de cuentas (SAVINGS/CHECKING)</li>
+            <li>Generación automática de número de cuenta</li>
+            <li>Depósitos con validaciones</li>
+            <li>Retiros con balance mínimo (polimorfismo)</li>
+            <li>Transferencias transaccionales</li>
+            <li>Consultas por múltiples filtros</li>
+        </ul>
+    </div>
+
+    <div class="exito">
+        <h3>Sistema de Notificaciones</h3>
+        <ul>
+            <li>9 tipos de notificaciones</li>
+            <li>4 canales (EMAIL, SMS, PUSH, IN_APP)</li>
+            <li>Estados (PENDING, SENT, FAILED, RETRY)</li>
+            <li>Event-driven con Spring Modulith</li>
+            <li>Simulación de envíos</li>
+        </ul>
+    </div>
+
+    <div class="exito">
+        <h3>Procesamiento Batch</h3>
+        <ul>
+            <li>Job mensual de cálculo de intereses</li>
+            <li>Factory Pattern para calculadoras (polimorfismo)</li>
+            <li>SAVINGS: 5% anual (0.42% mensual)</li>
+            <li>CHECKING: 1% anual (0.083% mensual)</li>
+            <li>Chunk processing (10 cuentas por lote)</li>
+            <li>Logs en MongoDB</li>
+        </ul>
+    </div>
+
+    <h2>🎨 Patrones de Diseño Aplicados</h2>
+    <ol>
+        <li><strong>Strategy Pattern:</strong> InterestCalculator con múltiples implementaciones</li>
+        <li><strong>Factory Pattern:</strong> InterestCalculatorFactory para selección dinámica</li>
+        <li><strong>Repository Pattern:</strong> 5 repositories (JPA + MongoDB)</li>
+        <li><strong>DTO Pattern:</strong> Request/Response objects para APIs</li>
+        <li><strong>Event-Driven Architecture:</strong> 5 eventos + 7 listeners</li>
+        <li><strong>Template Method:</strong> Spring Batch read-process-write</li>
+        <li><strong>Chain of Responsibility:</strong> Flujo de batch steps</li>
+    </ol>
+
+    <h2>📊 Resultados de Testing</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Package</th>
+                <th>Coverage Instrucciones</th>
+                <th>Coverage Branches</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>customer.service</td>
+                <td>100%</td>
+                <td>83%</td>
+                <td class="check">✅ EXCELENTE</td>
+            </tr>
+            <tr>
+                <td>account.service</td>
+                <td>83%</td>
+                <td>75%</td>
+                <td class="check">✅</td>
+            </tr>
+            <tr>
+                <td>batch.interest</td>
+                <td>94%</td>
+                <td>100%</td>
+                <td class="check">✅ EXCELENTE</td>
+            </tr>
+            <tr>
+                <td>notification.service</td>
+                <td>81%</td>
+                <td>77%</td>
+                <td class="check">✅</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>87%</strong></td>
+                <td><strong>80%</strong></td>
+                <td class="check"><strong>✅ SUPERADO</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🚀 Plan de Trabajo Ejecutado</h2>
+    
+    <h3>Día 1: Setup y Configuración <span class="check">✅</span></h3>
+    <ul>
+        <li>Maven configurado con 24 dependencias</li>
+        <li>Docker Compose con MySQL y MongoDB</li>
+        <li>Estructura de proyecto modular</li>
+        <li>Entidades base: Customer y Account</li>
+        <li>Swagger/OpenAPI configurado</li>
+    </ul>
+
+    <h3>Día 2: Módulo Customer + Testing <span class="check">✅</span></h3>
+    <ul>
+        <li>CRUD completo (8 endpoints)</li>
+        <li>Validaciones con Bean Validation</li>
+        <li>Testing en 3 capas (25 tests)</li>
+        <li>Coverage 100% en módulo Customer</li>
+        <li>Eventos: CustomerCreatedEvent</li>
+    </ul>
+
+    <h3>Día 3: Módulo Account + Polimorfismo <span class="check">✅</span></h3>
+    <ul>
+        <li>Gestión de cuentas (16 endpoints)</li>
+        <li>Polimorfismo: Balance mínimo por tipo</li>
+        <li>Transferencias transaccionales</li>
+        <li>Testing completo (53 tests)</li>
+        <li>Coverage 83% en módulo Account</li>
+    </ul>
+
+    <h3>Día 4: Eventos + Notificaciones <span class="check">✅</span></h3>
+    <ul>
+        <li>Sistema de eventos Spring Modulith</li>
+        <li>Módulo Notification (20 endpoints)</li>
+        <li>Módulo TransactionLog (18 endpoints)</li>
+        <li>Polimorfismo: Canales de notificación</li>
+        <li>7 event listeners implementados</li>
+    </ul>
+
+    <h3>Día 5: Spring Batch + Coverage Final <span class="check">✅</span></h3>
+    <ul>
+        <li>Job mensual de intereses</li>
+        <li>Factory Pattern + Strategy Pattern</li>
+        <li>2 steps con chunk processing</li>
+        <li>Testing batch (38 tests)</li>
+        <li>Coverage global: 87%</li>
+    </ul>
+
+    <h2>📈 Componentes Implementados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Componente</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Entidades JPA</td><td>2</td></tr>
+            <tr><td>Documentos MongoDB</td><td>3</td></tr>
+            <tr><td>Services</td><td>5</td></tr>
+            <tr><td>Repositories</td><td>5</td></tr>
+            <tr><td>Controllers</td><td>5</td></tr>
+            <tr><td>DTOs</td><td>5</td></tr>
+            <tr><td>Eventos</td><td>5</td></tr>
+            <tr><td>Event Listeners</td><td>7</td></tr>
+            <tr><td>Batch Jobs</td><td>1</td></tr>
+            <tr><td>Batch Steps</td><td>2</td></tr>
+            <tr><td>Endpoints REST</td><td><strong>50+</strong></td></tr>
+            <tr><td>Archivos de Test</td><td>15</td></tr>
+            <tr><td>Líneas de Test</td><td>3775</td></tr>
+        </tbody>
+    </table>
+
+    <h2>🎓 Conceptos del Curso Aplicados</h2>
+    <ul>
+        <li><span class="check">✅</span> Inyección de dependencias (Constructor injection)</li>
+        <li><span class="check">✅</span> Polimorfismo (3 patrones diferentes)</li>
+        <li><span class="check">✅</span> Spring Core & Spring REST (50+ endpoints)</li>
+        <li><span class="check">✅</span> Spring Data JPA (custom queries, paginación)</li>
+        <li><span class="check">✅</span> Maven (gestión completa de dependencias)</li>
+        <li><span class="check">✅</span> MongoDB (3 colecciones, queries complejas)</li>
+        <li><span class="check">✅</span> MySQL (2 entidades, relaciones, transacciones)</li>
+        <li><span class="check">✅</span> JUnit (138 tests en 15 archivos)</li>
+        <li><span class="check">✅</span> Mockito (mocking en todas las capas)</li>
+        <li><span class="check">✅</span> Spring Batch (job + 2 steps + listeners)</li>
+        <li><span class="check">✅</span> Event-Driven Architecture (Spring Modulith)</li>
+    </ul>
+
+    <h2>🏆 Logros Destacados</h2>
+    <div class="exito">
+        <ul>
+            <li><strong>Superó objetivo de coverage:</strong> 87% vs 85% esperado</li>
+            <li><strong>Triplicó endpoints esperados:</strong> 50+ vs 15+ planeados</li>
+            <li><strong>Implementó 7 patrones de diseño:</strong> vs polimorfismo básico esperado</li>
+            <li><strong>3775 líneas de tests:</strong> no especificado originalmente</li>
+            <li><strong>Arquitectura event-driven completa:</strong> con Spring Modulith</li>
+            <li><strong>Documentación exhaustiva:</strong> 10 archivos markdown</li>
+            <li><strong>Scripts de automatización:</strong> 2 scripts shell</li>
+            <li><strong>Docker Compose funcional:</strong> MySQL + MongoDB</li>
+        </ul>
+    </div>
+
+    <h2>💡 Conclusión</h2>
+    <p>
+        Este proyecto final ha <strong>superado todos los objetivos planificados</strong>, 
+        demostrando la aplicación práctica de todos los conceptos del curso en un contexto 
+        bancario realista. El sistema implementado es completamente funcional, está bien 
+        documentado, cuenta con alta cobertura de tests, y está preparado para ser 
+        demostrado en un portafolio profesional.
+    </p>
+
+    <div class="footer">
+        <p><strong>Academia Xideral FullStack</strong></p>
+        <p>Fecha de completación: 3 Octubre 2025</p>
+        <p>Estado: <span class="check">✅ PROYECTO 100% COMPLETADO Y FUNCIONAL</span></p>
+    </div>
+</body>
+</html>
